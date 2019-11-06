@@ -1,9 +1,9 @@
-package cl.gringraz.itunesclient.search.data.source
+package cl.gringraz.itunesclient.search.data.source.remote
 
-import cl.gringraz.itunesclient.search.data.entities.AlbumEntity
-import cl.gringraz.itunesclient.search.data.entities.ArtistEntity
-import cl.gringraz.itunesclient.search.data.entities.SearchResult
-import cl.gringraz.itunesclient.search.data.entities.TrackEntity
+import cl.gringraz.itunesclient.search.data.entities.remote.AlbumEntity
+import cl.gringraz.itunesclient.search.data.entities.remote.ArtistEntity
+import cl.gringraz.itunesclient.search.data.entities.remote.SearchResult
+import cl.gringraz.itunesclient.search.data.entities.remote.TrackEntity
 import retrofit2.http.GET
 import retrofit2.http.Query
 
