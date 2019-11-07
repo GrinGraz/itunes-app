@@ -1,4 +1,4 @@
-package cl.gringraz.itunesclient.search.domain.model
+package cl.gringraz.itunesclient.domain.model
 
 data class Artist(
     val artistId: Long,

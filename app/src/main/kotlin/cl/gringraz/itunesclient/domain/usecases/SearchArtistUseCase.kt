@@ -1,7 +1,7 @@
-package cl.gringraz.itunesclient.search.domain.usecases
+package cl.gringraz.itunesclient.domain.usecases
 
-import cl.gringraz.itunesclient.search.domain.model.Artist
-import cl.gringraz.itunesclient.search.domain.repository.RemoteRepository
+import cl.gringraz.itunesclient.domain.model.Artist
+import cl.gringraz.itunesclient.domain.repository.RemoteRepository
 
 
 class SearchArtistUseCase(private val remoteRepository: RemoteRepository) {

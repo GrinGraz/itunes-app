@@ -1,4 +1,4 @@
-package cl.gringraz.itunesclient.ui.main
+package cl.gringraz.itunesclient.feature.search
 
 import androidx.lifecycle.ViewModel
 

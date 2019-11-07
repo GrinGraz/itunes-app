@@ -1,4 +1,4 @@
-package cl.gringraz.itunesclient.search.data.entity.remote
+package cl.gringraz.itunesclient.data.entity.remote
 
 data class SearchResult<T>(
     val resultCount: Int,
