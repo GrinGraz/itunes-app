@@ -1,10 +1,10 @@
-package cl.gringraz.itunesclient.search.data.repository
+package cl.gringraz.itunesclient.data.repository
 
-import cl.gringraz.itunesclient.search.data.source.remote.RemoteDataSource
-import cl.gringraz.itunesclient.search.domain.model.Album
-import cl.gringraz.itunesclient.search.domain.model.Artist
-import cl.gringraz.itunesclient.search.domain.model.Track
-import cl.gringraz.itunesclient.search.domain.repository.RemoteRepository
+import cl.gringraz.itunesclient.data.source.remote.RemoteDataSource
+import cl.gringraz.itunesclient.domain.model.Album
+import cl.gringraz.itunesclient.domain.model.Artist
+import cl.gringraz.itunesclient.domain.model.Track
+import cl.gringraz.itunesclient.domain.repository.RemoteRepository
 
 class RemoteDataRepository(remoteDataSource: RemoteDataSource): RemoteRepository {
     override suspend fun searchArtists(term: String): List<Artist> {

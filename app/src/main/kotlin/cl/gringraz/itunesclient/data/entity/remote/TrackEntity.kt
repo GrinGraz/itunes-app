@@ -1,6 +1,6 @@
-package cl.gringraz.itunesclient.search.domain.model
+package cl.gringraz.itunesclient.data.entity.remote
 
-data class Track(
+data class TrackEntity(
     val artistId: Long,
     val collectionId: Long,
     val trackId: Long,
@@ -16,8 +16,8 @@ data class Track(
     val collectionPrice: Double,
     val trackPrice: Double,
     val releaseDate: String,
-    val isCollectionExplicit: Boolean,
-    val isTrackExplicit: Boolean,
+    val collectionExplicitness: String,
+    val trackExplicitness: String,
     val discCount: Int,
     val discNumber: Int,
     val trackCount: Int,
@@ -26,11 +26,5 @@ data class Track(
     val country: String,
     val currency: String,
     val primaryGenreName: String,
-    val isStreamable: Boolean,
-    val isDownloading: Boolean,
-    val isPlaying: Boolean,
-    val isPaused: Boolean,
-    val isDownloaded: Boolean,
-    val isMusic: Boolean,
-    val isVideo: Boolean
+    val isStreamable: Boolean
 )

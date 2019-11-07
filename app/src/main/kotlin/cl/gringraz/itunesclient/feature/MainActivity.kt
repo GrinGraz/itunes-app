@@ -1,8 +1,9 @@
-package cl.gringraz.itunesclient
+package cl.gringraz.itunesclient.feature
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import cl.gringraz.itunesclient.ui.main.MainFragment
+import cl.gringraz.itunesclient.R
+import cl.gringraz.itunesclient.feature.search.MainFragment
 
 class MainActivity : AppCompatActivity() {
 
