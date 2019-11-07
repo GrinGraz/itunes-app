@@ -1,5 +1,11 @@
 package cl.gringraz.itunesclient.search.domain.usecases
 
+import cl.gringraz.itunesclient.search.domain.model.Track
+import cl.gringraz.itunesclient.search.domain.repository.RemoteRepository
 
-class LookupTracksUseCase() {
+
+class LookupTracksUseCase(private val remoteRepository: RemoteRepository) {
+    suspend operator fun invoke(albumId: Long): List<Track> {
+        return remoteRepository.lookupTracks(albumId)
+    }
 }
