@@ -1,9 +1,9 @@
 package cl.gringraz.itunesclient.search.data.source.remote
 
-import cl.gringraz.itunesclient.search.data.entities.remote.AlbumEntity
-import cl.gringraz.itunesclient.search.data.entities.remote.ArtistEntity
-import cl.gringraz.itunesclient.search.data.entities.remote.SearchResult
-import cl.gringraz.itunesclient.search.data.entities.remote.TrackEntity
+import cl.gringraz.itunesclient.search.data.entity.remote.AlbumEntity
+import cl.gringraz.itunesclient.search.data.entity.remote.ArtistEntity
+import cl.gringraz.itunesclient.search.data.entity.remote.SearchResult
+import cl.gringraz.itunesclient.search.data.entity.remote.TrackEntity
 
 interface RemoteDataSource {
     suspend fun searchArtist(term: String, entity: String): SearchResult<ArtistEntity>

@@ -1,4 +1,4 @@
-package cl.gringraz.itunesclient.search.data.entities.remote
+package cl.gringraz.itunesclient.search.data.entity.remote
 
 data class TrackEntity(
     val artistId: Long,
