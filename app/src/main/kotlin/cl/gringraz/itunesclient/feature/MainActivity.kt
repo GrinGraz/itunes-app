@@ -16,5 +16,4 @@ class MainActivity : AppCompatActivity() {
                 .commitNow()
         }
     }
-
 }
