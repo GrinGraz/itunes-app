@@ -27,6 +27,11 @@ android {
     packagingOptions {
         pickFirst("META-INF/atomicfu.kotlin_module")
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -41,6 +46,7 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:2.0.0-beta3"
     implementation "com.google.android.material:material:1.2.0-alpha01"
     implementation "androidx.recyclerview:recyclerview:1.1.0-rc01"
+    implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
 
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
