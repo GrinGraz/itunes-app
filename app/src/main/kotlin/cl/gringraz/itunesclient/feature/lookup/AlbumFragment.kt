@@ -5,15 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
+import androidx.fragment.app.viewModels
 import cl.gringraz.itunesclient.R
+import cl.gringraz.itunesclient.util.getViewModelFactory
 
 class AlbumFragment : Fragment() {
     companion object {
         fun newInstance() = AlbumFragment()
     }
 
-    private lateinit var viewModel: LookupViewModel
+    private val viewModel by viewModels<LookupViewModel> { getViewModelFactory() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,7 +24,6 @@ class AlbumFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(LookupViewModel::class.java)
         // TODO: Use the ViewModel
     }
 }
