@@ -2,10 +2,9 @@ package cl.gringraz.itunesclient.feature.search
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.view.*
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import cl.gringraz.itunesclient.R
 
 class MainFragment : Fragment() {
@@ -29,4 +28,26 @@ class MainFragment : Fragment() {
         // TODO: Use the ViewModel
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        setupSearchviewMenu(menu, inflater)
+        return super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    private fun setupSearchviewMenu(menu: Menu, inflater: MenuInflater) {
+        setupSearchviewMenu(menu, inflater)
+        inflater.inflate(R.menu.search_menu, menu)
+        val searchItem = menu.findItem(R.id.action_search)
+        val searchView = searchItem.actionView as SearchView
+        searchView.isSubmitButtonEnabled = true
+        searchView.queryHint = "Search artist"
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextChange(newText: String): Boolean {
+                return false
+            }
+            override fun onQueryTextSubmit(query: String): Boolean {
+                viewModel.searchArtist(query)
+                return true
+            }
+        })
+    }
 }
