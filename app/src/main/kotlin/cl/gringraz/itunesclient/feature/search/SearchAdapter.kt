@@ -19,7 +19,8 @@ open class ArtistAdapter(
     override fun provideComparator() = compareBy(Artist::artistId)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<Artist> {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_artist, parent, false)
+        val itemView =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_artist, parent, false)
 
         return ArtistViewHolder(itemView).also {
 

@@ -1,7 +1,7 @@
 package cl.gringraz.itunesclient.feature
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import cl.gringraz.itunesclient.R
 import cl.gringraz.itunesclient.feature.search.MainFragment
 
