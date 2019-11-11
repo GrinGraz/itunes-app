@@ -1,14 +1,24 @@
 package cl.gringraz.itunesclient.data.repository
 
+import cl.gringraz.itunesclient.data.entity.remote.toArtist
 import cl.gringraz.itunesclient.data.source.remote.RemoteDataSource
 import cl.gringraz.itunesclient.domain.model.Album
 import cl.gringraz.itunesclient.domain.model.Artist
 import cl.gringraz.itunesclient.domain.model.Track
 import cl.gringraz.itunesclient.domain.repository.RemoteRepository
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
-class RemoteDataRepository(private val remoteDataSource: RemoteDataSource) : RemoteRepository {
+class RemoteDataRepository(
+    private val remoteDataSource: RemoteDataSource,
+    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
+) : RemoteRepository {
     override suspend fun searchArtists(term: String): List<Artist> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return withContext(ioDispatcher){
+            val artists = remoteDataSource.searchArtist(term = term)
+            artists.results.map { it.toArtist() }
+        }
     }
 
     override suspend fun lookupAlbums(artistId: Long): List<Album> {
