@@ -10,11 +10,11 @@ class ItunesDataSource(private val itunesApi: ItunesApi) : RemoteDataSource {
         return itunesApi.searchArtists(term)
     }
 
-    override suspend fun lookupAlbum(id: String, entity: String): SearchResult<AlbumEntity> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override suspend fun lookupAlbum(id: Long, entity: String): SearchResult<AlbumEntity> {
+        return itunesApi.lookupAlbums(id)
     }
 
-    override suspend fun lookupSong(id: String, entity: String): SearchResult<TrackEntity> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override suspend fun lookupSong(id: Long, entity: String): SearchResult<TrackEntity> {
+        return itunesApi.lookupTracks(id)
     }
 }
