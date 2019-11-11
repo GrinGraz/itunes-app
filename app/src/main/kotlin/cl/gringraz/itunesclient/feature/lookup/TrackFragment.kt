@@ -7,14 +7,16 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import cl.gringraz.itunesclient.R
-import cl.gringraz.itunesclient.util.getViewModelFactory
+import cl.gringraz.itunesclient.util.ViewModelFactory
+import org.koin.android.ext.android.inject
 
 class TrackFragment : Fragment() {
     companion object {
         fun newInstance() = AlbumFragment()
     }
 
-    private val viewModel by viewModels<LookupViewModel> { getViewModelFactory() }
+    private val viewModelFactory: ViewModelFactory by inject()
+    private val viewModel by viewModels<LookupViewModel> { viewModelFactory }
 
     override fun onCreateView(
         inflater: LayoutInflater,

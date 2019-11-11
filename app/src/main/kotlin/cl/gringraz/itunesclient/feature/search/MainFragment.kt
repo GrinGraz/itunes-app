@@ -43,6 +43,7 @@ class MainFragment : Fragment() {
         searchView.queryHint = "Search artist"
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextChange(newText: String): Boolean {
+
                 return false
             }
 
