@@ -1,7 +1,5 @@
 package cl.gringraz.itunesclient.domain.model
 
-import java.util.*
-
 data class Album(
     val collectionId: Long,
     val artistId: Long,
@@ -19,6 +17,5 @@ data class Album(
     val copyright: String,
     val country: String,
     val currency: String,
-    val releaseDate: Date,
     val primaryGenreName: String
 )

@@ -1,5 +1,7 @@
 package cl.gringraz.itunesclient.domain.model
 
+import cl.gringraz.itunesclient.feature.lookup.track.model.TrackItem
+
 data class Track(
     val artistId: Long,
     val collectionId: Long,
@@ -16,8 +18,6 @@ data class Track(
     val collectionPrice: Double,
     val trackPrice: Double,
     val releaseDate: String,
-    val isCollectionExplicit: Boolean,
-    val isTrackExplicit: Boolean,
     val discCount: Int,
     val discNumber: Int,
     val trackCount: Int,
@@ -26,11 +26,33 @@ data class Track(
     val country: String,
     val currency: String,
     val primaryGenreName: String,
-    val isStreamable: Boolean,
-    val isDownloading: Boolean,
-    val isPlaying: Boolean,
-    val isPaused: Boolean,
-    val isDownloaded: Boolean,
     val isMusic: Boolean,
     val isVideo: Boolean
+)
+
+fun Track.toTrackItem() = TrackItem(
+    artistId = artistId,
+    collectionId = collectionId,
+    trackId = trackId,
+    artistName = artistName,
+    collectionName = collectionName,
+    trackName = trackName,
+    collectionCensoredName = collectionCensoredName,
+    trackCensoredName = trackCensoredName,
+    artistViewUrl = artistViewUrl,
+    collectionViewUrl = collectionViewUrl,
+    trackViewUrl = trackViewUrl,
+    previewUrl = previewUrl,
+    collectionPrice = collectionPrice,
+    trackPrice = trackPrice,
+    discCount = discCount,
+    discNumber = discNumber,
+    trackCount = trackCount,
+    trackNumber = trackNumber,
+    trackTimeMillis = trackTimeMillis,
+    country = country,
+    currency = currency,
+    primaryGenreName = primaryGenreName,
+    isMusic = isMusic,
+    isVideo = isVideo
 )

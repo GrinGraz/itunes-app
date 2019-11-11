@@ -7,8 +7,9 @@ import cl.gringraz.itunesclient.R
 import cl.gringraz.itunesclient.domain.model.Artist
 import cl.gringraz.itunesclient.ui.BaseAdapter
 import cl.gringraz.itunesclient.ui.BaseViewHolder
+import kotlinx.android.synthetic.main.item_artist.view.*
 
-open class ArtistAdapter(
+open class SearchAdapter(
     private val manager: AdapterManager
 ) : BaseAdapter<Artist>() {
 
@@ -22,19 +23,23 @@ open class ArtistAdapter(
         val itemView =
             LayoutInflater.from(parent.context).inflate(R.layout.item_artist, parent, false)
 
-        return ArtistViewHolder(itemView).also {
-
+        return ArtistViewHolder(itemView).also { holder ->
+            with(itemView) {
+                setOnClickListener {
+                    val item = holder.resolveItem()
+                    if (item != null)
+                        manager.onArtistClicked(item, holder.adapterPosition)
+                }
+            }
         }
     }
 
-    fun isEmpty() = items.isEmpty()
-
-    inner class ArtistViewHolder(
-        itemView: View
-    ) :
-        BaseViewHolder<Artist>(itemView) {
+    inner class ArtistViewHolder(itemView: View): BaseViewHolder<Artist>(itemView) {
         override fun bindView(item: Artist) {
-
+            with(itemView) {
+                artistName.text = item.artistName
+                artistGenre.text = item.primaryGenreName
+            }
         }
     }
 }

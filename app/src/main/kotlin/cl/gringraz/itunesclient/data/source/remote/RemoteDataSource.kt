@@ -7,6 +7,6 @@ import cl.gringraz.itunesclient.data.entity.remote.TrackEntity
 
 interface RemoteDataSource {
     suspend fun searchArtist(term: String, entity: String = "musicArtist"): SearchResult<ArtistEntity>
-    suspend fun lookupAlbum(id: String, entity: String): SearchResult<AlbumEntity>
-    suspend fun lookupSong(id: String, entity: String): SearchResult<TrackEntity>
+    suspend fun lookupAlbum(id: Long, entity: String = "album"): SearchResult<AlbumEntity>
+    suspend fun lookupSong(id: Long, entity: String = "song"): SearchResult<TrackEntity>
 }

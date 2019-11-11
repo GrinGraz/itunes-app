@@ -1,5 +1,7 @@
 package cl.gringraz.itunesclient.data.entity.remote
 
+import cl.gringraz.itunesclient.domain.model.Track
+
 data class TrackEntity(
     val artistId: Long,
     val collectionId: Long,
@@ -27,4 +29,32 @@ data class TrackEntity(
     val currency: String,
     val primaryGenreName: String,
     val isStreamable: Boolean
+)
+
+fun TrackEntity.toTrack() = Track(
+    artistId = artistId,
+    collectionId = collectionId,
+    trackId = trackId,
+    artistName = artistName,
+    collectionName = collectionName,
+    trackName = trackName,
+    collectionCensoredName = collectionCensoredName,
+    trackCensoredName = trackCensoredName,
+    artistViewUrl = artistViewUrl,
+    collectionViewUrl = collectionViewUrl,
+    trackViewUrl = trackViewUrl,
+    previewUrl = previewUrl,
+    collectionPrice = collectionPrice,
+    trackPrice = trackPrice,
+    releaseDate = releaseDate,
+    discCount = discCount,
+    discNumber = discNumber,
+    trackCount = trackCount,
+    trackNumber = trackNumber,
+    trackTimeMillis = trackTimeMillis,
+    country = country,
+    currency = currency,
+    primaryGenreName = primaryGenreName,
+    isMusic = previewUrl.endsWith(".m4a"),
+    isVideo = previewUrl.endsWith(".m4v")
 )

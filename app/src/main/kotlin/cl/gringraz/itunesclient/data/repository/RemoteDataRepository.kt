@@ -1,6 +1,8 @@
 package cl.gringraz.itunesclient.data.repository
 
+import cl.gringraz.itunesclient.data.entity.remote.toAlbum
 import cl.gringraz.itunesclient.data.entity.remote.toArtist
+import cl.gringraz.itunesclient.data.entity.remote.toTrack
 import cl.gringraz.itunesclient.data.source.remote.RemoteDataSource
 import cl.gringraz.itunesclient.domain.model.Album
 import cl.gringraz.itunesclient.domain.model.Artist
@@ -22,10 +24,16 @@ class RemoteDataRepository(
     }
 
     override suspend fun lookupAlbums(artistId: Long): List<Album> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return withContext(ioDispatcher){
+            val artists = remoteDataSource.lookupAlbum(artistId)
+            artists.results.drop(1).map { it.toAlbum() }
+        }
     }
 
     override suspend fun lookupTracks(albumId: Long): List<Track> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return withContext(ioDispatcher) {
+            val artists = remoteDataSource.lookupSong(albumId)
+            artists.results.drop(1).map { it.toTrack() }
+        }
     }
 }
