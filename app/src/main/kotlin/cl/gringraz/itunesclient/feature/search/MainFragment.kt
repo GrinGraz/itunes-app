@@ -45,6 +45,7 @@ class MainFragment : Fragment() {
             override fun onQueryTextChange(newText: String): Boolean {
                 return false
             }
+
             override fun onQueryTextSubmit(query: String): Boolean {
                 viewModel.searchArtist(query)
                 return true

@@ -6,7 +6,7 @@ import cl.gringraz.itunesclient.domain.model.Artist
 import cl.gringraz.itunesclient.domain.model.Track
 import cl.gringraz.itunesclient.domain.repository.RemoteRepository
 
-class RemoteDataRepository(remoteDataSource: RemoteDataSource): RemoteRepository {
+class RemoteDataRepository(private val remoteDataSource: RemoteDataSource) : RemoteRepository {
     override suspend fun searchArtists(term: String): List<Artist> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }

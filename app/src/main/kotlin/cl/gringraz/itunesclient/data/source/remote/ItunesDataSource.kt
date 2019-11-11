@@ -5,7 +5,7 @@ import cl.gringraz.itunesclient.data.entity.remote.ArtistEntity
 import cl.gringraz.itunesclient.data.entity.remote.SearchResult
 import cl.gringraz.itunesclient.data.entity.remote.TrackEntity
 
-class ItunesDataSource(itunesApi: ItunesApi): RemoteDataSource {
+class ItunesDataSource(private val itunesApi: ItunesApi) : RemoteDataSource {
     override suspend fun searchArtist(term: String, entity: String): SearchResult<ArtistEntity> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }

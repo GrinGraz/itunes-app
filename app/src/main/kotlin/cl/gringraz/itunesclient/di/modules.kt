@@ -1,6 +1,5 @@
 package cl.gringraz.itunesclient.di
 
-import androidx.fragment.app.Fragment
 import cl.gringraz.itunesclient.data.repository.RemoteDataRepository
 import cl.gringraz.itunesclient.data.source.remote.ItunesApi
 import cl.gringraz.itunesclient.data.source.remote.ItunesDataSource
@@ -8,7 +7,8 @@ import cl.gringraz.itunesclient.data.source.remote.RemoteDataSource
 import cl.gringraz.itunesclient.domain.repository.RemoteRepository
 import cl.gringraz.itunesclient.util.ViewModelFactory
 import okhttp3.OkHttpClient
-import org.koin.dsl.module.module
+import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
@@ -18,6 +18,7 @@ const val URL_BASE_ITUNES_SEARCH_API = "https://itunes.apple.com/"
 val searchModule = module {
     single {
         OkHttpClient.Builder()
+            .addInterceptor(HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY })
             .callTimeout(1, TimeUnit.MINUTES)
             .connectTimeout(1, TimeUnit.MINUTES)
             .readTimeout(1, TimeUnit.MINUTES)
